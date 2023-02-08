@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import HomeBanner from '../HomeBanner'
-import VideosList from '../VideosList'
+import HomeVideosList from '../HomeVideosList'
 import HomeNoSearchResultComponent from '../HomeNoSearchResultComponent'
 import FailureComponent from '../FailureComponent'
 
@@ -123,7 +123,7 @@ class Home extends Component {
     return videosLength === 0 ? (
       <HomeNoSearchResultComponent />
     ) : (
-      <VideosList videos={videosList} />
+      <HomeVideosList videos={videosList} />
     )
   }
 

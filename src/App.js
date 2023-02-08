@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Route, Switch, Redirect, withRouter} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 
 import Login from './components/Login'
 import Home from './components/Home'
@@ -89,7 +89,7 @@ class App extends Component {
       >
         <>
           <Switch>
-            <ProtectedRoute path="/" component={Home} />
+            <ProtectedRoute exact path="/" component={Home} />
             <ProtectedRoute
               exact
               path="/saved-videos"
@@ -97,7 +97,11 @@ class App extends Component {
             />
             <ProtectedRoute exact path="/trending" component={Trending} />
             <ProtectedRoute exact path="/gaming" component={Gaming} />
-            <ProtectedRoute path="/videos/:id" component={VideoItemDetails} />
+            <ProtectedRoute
+              exact
+              path="/videos/:id"
+              component={VideoItemDetails}
+            />
 
             <Route exact path="/login" component={Login} />
             <Route exact path="/not-found" component={NotFound} />
@@ -109,4 +113,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+export default App
