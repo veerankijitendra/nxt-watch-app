@@ -8,12 +8,12 @@ export const BG = styled.div`
   height: 100%;
   min-height: 810px;
 
-  background-color: ${props => (props.isDarkMode ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.isDarkMode ? '#0f0f0f' : '#f9f9f9')};
 `
 
 export const HeaderBG = styled.div`
   background-color: ${props =>
-    props.outline === 'true' ? '#0f0f0f' : '#f1f1f1'};
+    props.outline === 'true' ? '#181818' : '#f1f1f1'};
 `
 
 export const SideBarCon = styled.div`
@@ -29,7 +29,7 @@ export const SideBarCon = styled.div`
   justify-content: space-between;
 
   background-color: ${props =>
-    props.outline === 'true' ? '#0f0f0f' : '#f1f1f1'};
+    props.outline === 'true' ? '#181818' : '#f1f1f1'};
 `
 
 export const SideBarConAndBanner = styled.div`

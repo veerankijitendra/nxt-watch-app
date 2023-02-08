@@ -47,12 +47,19 @@ export const HomeBannerButton = styled(Button)`
   border: 2px solid #00306e;
   border-radius: 0;
 `
-export const HomeBannerCloseIcon = styled(AiOutlineClose)`
-  height: 16px;
-  width: 16px;
+export const HomeBannerCloseButton = styled(Button)`
+  background-color: transparent;
+
+  height: 1.5rem;
+  width: 1.5rem;
 
   @media all and (min-width: 576px) {
-    height: 20px;
-    width: 20px;
+    height: 2rem;
+    width: 2rem;
   }
+`
+
+export const HomeBannerCloseIcon = styled(AiOutlineClose)`
+  width: 100%;
+  height: 100%;
 `

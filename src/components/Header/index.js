@@ -1,8 +1,10 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 import Popup from 'reactjs-popup'
 
 import RoutesShortCut from '../RoutesShortCut'
+
+import LogoutPopUp from '../LogoutPopUp'
 
 import {
   HeaderImage,
@@ -10,8 +12,6 @@ import {
   LowTierIconsCon,
   HighTierIconCon,
   HeaderButton,
-  LogoutButton,
-  LogoutIcon,
   MenuIcon,
   CloseIcon,
   ChangeModeSun,
@@ -28,10 +28,6 @@ const Header = () => (
   <NxtWatchContext.Consumer>
     {value => {
       const {isDarkMode, changeTheBGMode} = value
-
-      const onClickLogout = () => {
-        console.log('log out')
-      }
 
       const onClickBGChange = () => {
         changeTheBGMode()
@@ -77,7 +73,7 @@ const Header = () => (
       )
 
       const modeChangeComponent = () => (
-        <HeaderButton type="button">
+        <HeaderButton type="button" data-testId="theme">
           {isDarkMode ? (
             <ChangeModeSun onClick={onClickBGChange} />
           ) : (
@@ -86,17 +82,20 @@ const Header = () => (
         </HeaderButton>
       )
 
+      const image = isDarkMode
+        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+
       return (
         <HeaderBg isDarkMode={isDarkMode.toString()}>
-          <HeaderImage
-            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-            alt="logo"
-          />
+          <Link to="/">
+            <HeaderImage src={image} alt="website logo" />
+          </Link>
           <LowTierIconsCon>
             {modeChangeComponent()}
             {popUpComponent()}
-            <HeaderButton type="button" onClick={onClickLogout}>
-              <LogoutIcon isdarkmode={isDarkMode.toString()} />
+            <HeaderButton type="button">
+              <LogoutPopUp />
             </HeaderButton>
           </LowTierIconsCon>
           <HighTierIconCon>
@@ -107,9 +106,7 @@ const Header = () => (
                 alt="profile"
               />
             </HeaderButton>
-            <LogoutButton type="button" onClick={onClickLogout}>
-              Logout
-            </LogoutButton>
+            <LogoutPopUp />
           </HighTierIconCon>
         </HeaderBg>
       )

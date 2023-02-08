@@ -10,7 +10,7 @@ const ContactUs = () => (
       />
       <ContactUsImage
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-        alt="twitters logo"
+        alt="twitter logo"
       />
       <ContactUsImage
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
@@ -18,7 +18,7 @@ const ContactUs = () => (
       />
     </>
     <ContactUsHeading>
-      Enjoy! Now to see your <br /> channels and <br /> recommendations!
+      Enjoy! Now to see your channels and recommendations!
     </ContactUsHeading>
   </ContactUsCon>
 )

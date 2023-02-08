@@ -1,4 +1,4 @@
-import {Route, Redirect} from 'react-router-dom'
+import {Route, Redirect, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
 const ProtectedRoute = props => {
@@ -9,4 +9,4 @@ const ProtectedRoute = props => {
   return <Route {...props} />
 }
 
-export default ProtectedRoute
+export default withRouter(ProtectedRoute)

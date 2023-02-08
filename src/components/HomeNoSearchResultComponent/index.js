@@ -1,32 +1,34 @@
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 import {
+  NoResultButton,
   NoResultCon,
   NoResultHeading,
   NoResultImage,
   NoResultPara,
 } from './styledComponent'
 
-const NotFound = () => (
+const HomeNoSearchResultComponent = () => (
   <NxtWatchContext.Consumer>
     {value => {
       const {isDarkMode} = value
-      const image = isDarkMode
-        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png'
-        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png'
       return (
         <NoResultCon>
-          <NoResultImage src={image} alt="not found" />
+          <NoResultImage
+            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+            alt="no videos"
+          />
           <NoResultHeading outline={isDarkMode.toString()}>
-            Page Not Found
+            No Search result found
           </NoResultHeading>
           <NoResultPara>
-            we are sorry, the page you requested could not be found.
+            Try different key words or remove search filter
           </NoResultPara>
+          <NoResultButton type="button">Retry</NoResultButton>
         </NoResultCon>
       )
     }}
   </NxtWatchContext.Consumer>
 )
 
-export default NotFound
+export default HomeNoSearchResultComponent

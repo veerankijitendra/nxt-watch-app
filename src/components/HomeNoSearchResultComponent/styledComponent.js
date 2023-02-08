@@ -17,11 +17,8 @@ export const NoResultImage = styled.img`
   margin-bottom: 1rem;
 
   @media all and (min-width: 768px) {
-    height: 60%;
-    width: 50%;
-
-    max-width: 30rem;
-    max-height: 40rem;
+    height: 15rem;
+    width: 20rem;
   }
 `
 
@@ -33,7 +30,7 @@ export const NoResultHeading = styled.h1`
   color: ${props => (props.outline === 'true' ? '#f9f9f9' : '#00306e')};
 
   @media all and (min-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `
 

@@ -25,9 +25,6 @@ export const HeaderBg = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background-color: ${props =>
-    props.isDarkMode === 'true' ? '#0f0f0f' : '#f8fafc'};
-
   padding: 1rem 2rem;
 
   height: 80px;
@@ -47,7 +44,7 @@ export const HighTierIconCon = styled.div`
   @media all and (max-width: 767px) {
     display: none;
   }
-  width: 20%;
+  width: 25%;
   min-width: 230px;
   display: flex;
   justify-content: space-between;
@@ -61,13 +58,10 @@ export const CloseIcon = styled(AiOutlineClose)`
 `
 
 export const HeaderButton = styled(Button)`
-  width: 50%;
-  height: 50%;
-
-  max-width: 28px;
+  width: 28px;
 
   @media all and (min-width: 767px) {
-    max-width: 36px;
+    width: 2.5rem;
   }
 
   padding: 0;

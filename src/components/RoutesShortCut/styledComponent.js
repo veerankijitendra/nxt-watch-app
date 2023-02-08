@@ -36,7 +36,6 @@ export const MenuListItem = styled.li`
   margin-bottom: 8px;
 `
 export const MenuName = styled.p`
-  width: 25%;
   margin: 0;
   margin-top: 2px;
   font-size: 15px;

@@ -4,9 +4,8 @@ import Cookies from 'js-cookie'
 
 import Header from '../Header'
 import SideBar from '../SideBar'
-import HomeBanner from '../HomeBanner'
+import BannerComponent from '../BannerComponent'
 import VideosList from '../VideosList'
-import HomeNoSearchResultComponent from '../HomeNoSearchResultComponent'
 import FailureComponent from '../FailureComponent'
 
 import {
@@ -15,10 +14,6 @@ import {
   SideBarConAndBanner,
   LoadingComponent,
   BannerAndRouteComponent,
-  SearchButton,
-  SearchElement,
-  SearchElementCon,
-  SearchIcon,
   HeaderBG,
 } from './styledComponent'
 
@@ -31,12 +26,10 @@ const apiStatusConstants = {
   failure: 'failure',
 }
 
-class Home extends Component {
+class Trending extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
     videosList: [],
-    isHomeBannerClosed: false,
-    searchInput: '',
   }
 
   componentDidMount() {
@@ -60,14 +53,9 @@ class Home extends Component {
     return updatedVideos
   }
 
-  removeHomeBanner = () => {
-    this.setState({isHomeBannerClosed: true})
-  }
-
   getPageDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.initial})
-    const {searchInput} = this.state
-    const url = `https://apis.ccbp.in/videos/all?search=${searchInput}`
+    const url = 'https://apis.ccbp.in/videos/trending'
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -87,49 +75,21 @@ class Home extends Component {
     this.setState({apiStatus: apiStatusConstants.failure})
   }
 
-  renderHomePageSuccessView = () => {}
-
   renderLoadingElement = () => (
-    <LoadingComponent>
+    <LoadingComponent data-testId="loader">
       <Loader type="ThreeDots" color="#000000" height="50" width="50" />
     </LoadingComponent>
   )
 
-  changeSearchInput = e => {
-    this.setState({searchInput: e.target.value})
-  }
-
-  renderSearchComponent = isDarkMode => {
-    const {searchInput} = this.state
-    return (
-      <SearchElementCon>
-        <SearchElement
-          type="search"
-          value={searchInput}
-          onChange={this.changeSearchInput}
-          placeholder="Search"
-          outline={isDarkMode.toString()}
-        />
-        <SearchButton type="button" onClick={this.getPageDetails}>
-          <SearchIcon />
-        </SearchButton>
-      </SearchElementCon>
-    )
-  }
-
-  renderSuccessHomeView = () => {
+  renderSuccessView = () => {
     const {videosList} = this.state
-    const videosLength = videosList.length
-    return videosLength === 0 ? (
-      <HomeNoSearchResultComponent />
-    ) : (
-      <VideosList videos={videosList} />
-    )
+
+    return <VideosList videos={videosList} />
   }
 
   renderFailureView = () => <FailureComponent reloadAPI={this.getPageDetails} />
 
-  renderHomeComponents = () => {
+  renderComponents = () => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
@@ -137,7 +97,7 @@ class Home extends Component {
         return this.renderLoadingElement()
 
       case apiStatusConstants.success:
-        return this.renderSuccessHomeView()
+        return this.renderSuccessView()
 
       case apiStatusConstants.failure:
         return this.renderFailureView()
@@ -152,10 +112,8 @@ class Home extends Component {
         {value => {
           const {isDarkMode} = value
 
-          const {isHomeBannerClosed} = this.state
-
           return (
-            <BG isDarkMode={isDarkMode} data-testId="home">
+            <BG isDarkMode={isDarkMode} data-testId="trending">
               <HeaderBG outline={isDarkMode.toString()}>
                 <Header />
               </HeaderBG>
@@ -164,14 +122,8 @@ class Home extends Component {
                   <SideBar />
                 </SideBarCon>
                 <BannerAndRouteComponent>
-                  {!isHomeBannerClosed ? (
-                    <HomeBanner
-                      removeHomeBanner={this.removeHomeBanner}
-                      isDarkMode={isDarkMode}
-                    />
-                  ) : null}
-                  {this.renderSearchComponent(isDarkMode)}
-                  {this.renderHomeComponents()}
+                  <BannerComponent />
+                  {this.renderComponents()}
                 </BannerAndRouteComponent>
               </SideBarConAndBanner>
             </BG>
@@ -181,4 +133,4 @@ class Home extends Component {
     )
   }
 }
-export default Home
+export default Trending

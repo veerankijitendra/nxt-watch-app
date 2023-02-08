@@ -5,9 +5,10 @@ export const ContactUsCon = styled.div`
   padding-left: 1rem;
 `
 
-export const ContactUsHeading = styled.h1`
+export const ContactUsHeading = styled.p`
   color: #00306e;
   font-size: 1rem;
+  font-weight: 800;
 `
 
 export const ContactUsImage = styled.img`
