@@ -47,10 +47,11 @@ const RoutesShortCut = () => (
 
       return (
         <MenuPopupListCon>
-          <RouteLink to="/" onClick={homeRouteClicked}>
-            <MenuListItem
-              outline={(activeRoute === routeStatus.home).toString()}
-            >
+          <MenuListItem
+            outline={(activeRoute === routeStatus.home).toString()}
+            key="home"
+          >
+            <RouteLink to="/" onClick={homeRouteClicked}>
               <RouteButton>
                 <HomeIcon
                   outline={(activeRoute === routeStatus.home).toString()}
@@ -59,13 +60,14 @@ const RoutesShortCut = () => (
               <MenuName outline={(activeRoute === routeStatus.home).toString()}>
                 Home
               </MenuName>
-            </MenuListItem>
-          </RouteLink>
+            </RouteLink>
+          </MenuListItem>
 
-          <RouteLink to="/trending" onClick={trendingRouteClicked}>
-            <MenuListItem
-              outline={(activeRoute === routeStatus.trend).toString()}
-            >
+          <MenuListItem
+            outline={(activeRoute === routeStatus.trend).toString()}
+            key="trending"
+          >
+            <RouteLink to="/trending" onClick={trendingRouteClicked}>
               <RouteButton>
                 <TrendingIcon
                   outline={(activeRoute === routeStatus.trend).toString()}
@@ -76,13 +78,14 @@ const RoutesShortCut = () => (
               >
                 Trending
               </MenuName>
-            </MenuListItem>
-          </RouteLink>
+            </RouteLink>
+          </MenuListItem>
 
-          <RouteLink to="/gaming" onClick={gamingRouteClicked}>
-            <MenuListItem
-              outline={(activeRoute === routeStatus.game).toString()}
-            >
+          <MenuListItem
+            outline={(activeRoute === routeStatus.game).toString()}
+            key="gaming"
+          >
+            <RouteLink to="/gaming" onClick={gamingRouteClicked}>
               <RouteButton>
                 <GamingIcon
                   outline={(activeRoute === routeStatus.game).toString()}
@@ -91,13 +94,14 @@ const RoutesShortCut = () => (
               <MenuName outline={(activeRoute === routeStatus.game).toString()}>
                 Gaming
               </MenuName>
-            </MenuListItem>
-          </RouteLink>
+            </RouteLink>
+          </MenuListItem>
 
-          <RouteLink to="/saved-videos" onClick={savedVideosRouteClicked}>
-            <MenuListItem
-              outline={(activeRoute === routeStatus.saved).toString()}
-            >
+          <MenuListItem
+            outline={(activeRoute === routeStatus.saved).toString()}
+            key="saved-videos"
+          >
+            <RouteLink to="/saved-videos" onClick={savedVideosRouteClicked}>
               <RouteButton>
                 <SavedVideosIcon
                   outline={(activeRoute === routeStatus.saved).toString()}
@@ -108,8 +112,8 @@ const RoutesShortCut = () => (
               >
                 Saved videos
               </MenuName>
-            </MenuListItem>
-          </RouteLink>
+            </RouteLink>
+          </MenuListItem>
         </MenuPopupListCon>
       )
     }}

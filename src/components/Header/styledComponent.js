@@ -20,7 +20,7 @@ export const ProfileImage = styled.img`
   width: 100%;
   height: 100%;
 `
-export const HeaderBg = styled.div`
+export const HeaderBg = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,6 +31,7 @@ export const HeaderBg = styled.div`
 `
 
 export const LowTierIconsCon = styled.div`
+  padding: 0;
   width: 20%;
   min-width: 120px;
   display: flex;
@@ -39,12 +40,18 @@ export const LowTierIconsCon = styled.div`
   @media all and (min-width: 767px) {
     display: none;
   }
+  list-style: none;
+`
+export const List = styled.li`
+  list-style-type: none;
 `
 export const HighTierIconCon = styled.div`
+  list-style: none;
+  padding: 0;
   @media all and (max-width: 767px) {
     display: none;
   }
-  width: 25%;
+  width: 20%;
   min-width: 230px;
   display: flex;
   justify-content: space-between;

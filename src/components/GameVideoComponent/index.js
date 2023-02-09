@@ -5,6 +5,7 @@ import {
   GamingImage,
   ParaDescription,
   ViewsElement,
+  LinkCom,
 } from './styledComponent'
 
 const GameVideoComponent = props => (
@@ -12,18 +13,20 @@ const GameVideoComponent = props => (
     {value => {
       const {isDarkMode} = value
       const {video} = props
-      const {thumbnailUrl, title, viewCount} = video
+      const {thumbnailUrl, title, viewCount, id} = video
 
       return (
-        <GamingComponentCon>
-          <GamingImage src={thumbnailUrl} alt="gaming image" />
-          <ParaDescription outline={isDarkMode.toString()}>
-            {title}
-          </ParaDescription>
-          <ViewsElement outline={isDarkMode.toString()}>
-            {viewCount} Watching <br /> Worldwide
-          </ViewsElement>
-        </GamingComponentCon>
+        <LinkCom to={`/videos/${id}`}>
+          <GamingComponentCon>
+            <GamingImage src={thumbnailUrl} alt="video thumbnail" />
+            <ParaDescription outline={isDarkMode.toString()}>
+              {title}
+            </ParaDescription>
+            <ViewsElement outline={isDarkMode.toString()}>
+              {viewCount} Watching <br /> Worldwide
+            </ViewsElement>
+          </GamingComponentCon>
+        </LinkCom>
       )
     }}
   </NxtWatchContext.Consumer>

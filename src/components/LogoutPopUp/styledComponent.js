@@ -47,12 +47,25 @@ export const IconButton = styled(Button)`
   width: 28px;
 
   @media all and (min-width: 767px) {
-    display: none;
+    width: 6.2rem;
+    height: 2.8rem;
+
+    background-color: #3b82f6;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 500;
   }
 
   padding: 0;
 
   background-color: transparent;
+`
+export const Span = styled.span`
+  @media all and (max-width: 767px) {
+    display: block;
+  }
 `
 
 export const PopUpButton = styled(Button)`
@@ -84,8 +97,7 @@ export const LogoutIcon = styled(FiLogIn)`
   width: 100%;
 
   color: ${props => (props.outline === 'true' ? color.dark : color.lite)};
-  @media all and (max-width: 767px) {
-    display: inline;
+  @media all and (min-width: 767px) {
+    display: none;
   }
-  display: none;
 `

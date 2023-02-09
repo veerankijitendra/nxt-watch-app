@@ -23,6 +23,7 @@ import {
   VIThumbnailImg,
   VIThumbnailAndChannelCon,
   VideoItemBG,
+  Para,
 } from './styledComponent'
 
 const VideoItem = props => {
@@ -45,11 +46,11 @@ const VideoItem = props => {
           outline={dark.toString()}
         >
           <DisLikedIcon outline={dark.toString()} />
-          <IconName>Dislike</IconName>
+          Dislike
         </VIButtonClicked>
       ) : (
         <VIButton type="button" onClick={disLiked} outline={dark.toString()}>
-          <DisLikeIcon outline={dark.toString()} /> <IconName>Dislike</IconName>
+          <DisLikeIcon outline={dark.toString()} /> Dislike
         </VIButton>
       )}
     </>
@@ -63,11 +64,12 @@ const VideoItem = props => {
           onClick={liked}
           outline={dark.toString()}
         >
-          <LikedIcon outline={dark.toString()} /> <IconName>Like</IconName>
+          <LikedIcon outline={dark.toString()} />
+          Like
         </VIButtonClicked>
       ) : (
         <VIButton type="button" onClick={liked} outline={dark.toString()}>
-          <LikeIcon outline={dark.toString()} /> <IconName>Like</IconName>
+          <LikeIcon outline={dark.toString()} /> Like
         </VIButton>
       )}
     </>
@@ -120,10 +122,10 @@ const VideoItem = props => {
             <>
               <VIViewsTimeLineCon>
                 <VIViewsSubscriberElement outline={dark.toString()}>
-                  {viewCount} views
+                  <Para>{viewCount} views</Para>
                 </VIViewsSubscriberElement>
                 <VITimePeriodElement outline={dark.toString()}>
-                  {publishedAt} years ago
+                  <Para>{publishedAt} </Para> years ago
                 </VITimePeriodElement>
               </VIViewsTimeLineCon>
               <VIIconsCon>
@@ -146,12 +148,12 @@ const VideoItem = props => {
                   {channelName}
                 </VIChannelName>
                 <VISubscribers outline={dark.toString()}>
-                  {channelSubscriberCount} subscribers
+                  <Para>{channelSubscriberCount} subscribers</Para>
                 </VISubscribers>
               </div>
             </VIThumbnailAndChannelCon>
             <VIChannelDescription outline={dark.toString()}>
-              {description}
+              <Para>{description}</Para>
             </VIChannelDescription>
           </VideoItemBG>
         )

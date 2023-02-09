@@ -1,11 +1,8 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
-export const GamingComponentCon = styled.div`
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
+export const LinkCom = styled(Link)`
+  text-decoration: none;
   padding: 1rem;
   margin: 0 1rem 2rem 0;
 
@@ -20,6 +17,13 @@ export const GamingComponentCon = styled.div`
     min-width: 18%;
     max-width: 210px;
   }
+`
+
+export const GamingComponentCon = styled.div`
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const ParaDescription = styled.p`

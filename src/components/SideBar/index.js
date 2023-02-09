@@ -10,7 +10,7 @@ const SideBar = () => (
     {value => {
       const {isDarkMode} = value
       return (
-        <SideBarCon outline={isDarkMode.toString()}>
+        <SideBarCon outline={isDarkMode.toString()} key="side-bar">
           <RoutesShortCut />
           <ContactUs />
         </SideBarCon>

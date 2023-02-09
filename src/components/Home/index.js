@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -36,7 +37,7 @@ class Home extends Component {
     apiStatus: apiStatusConstants.initial,
     videosList: [],
     isHomeBannerClosed: false,
-    searchInput: '',
+    search: '',
   }
 
   componentDidMount() {
@@ -66,8 +67,8 @@ class Home extends Component {
 
   getPageDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.initial})
-    const {searchInput} = this.state
-    const url = `https://apis.ccbp.in/videos/all?search=${searchInput}`
+    const {search} = this.state
+    const url = `https://apis.ccbp.in/videos/all?search=${search}`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -87,30 +88,36 @@ class Home extends Component {
     this.setState({apiStatus: apiStatusConstants.failure})
   }
 
-  renderHomePageSuccessView = () => {}
+  retryTheResult = () => {
+    this.setState({search: ''}, this.getPageDetails)
+  }
 
   renderLoadingElement = () => (
-    <LoadingComponent>
+    <LoadingComponent data-testId="loader">
       <Loader type="ThreeDots" color="#000000" height="50" width="50" />
     </LoadingComponent>
   )
 
   changeSearchInput = e => {
-    this.setState({searchInput: e.target.value})
+    this.setState({search: e.target.value})
   }
 
   renderSearchComponent = isDarkMode => {
-    const {searchInput} = this.state
+    const {search} = this.state
     return (
       <SearchElementCon>
         <SearchElement
           type="search"
-          value={searchInput}
+          value={search}
           onChange={this.changeSearchInput}
           placeholder="Search"
           outline={isDarkMode.toString()}
         />
-        <SearchButton type="button" onClick={this.getPageDetails}>
+        <SearchButton
+          type="search"
+          onClick={this.getPageDetails}
+          data-testId="searchButton"
+        >
           <SearchIcon />
         </SearchButton>
       </SearchElementCon>
@@ -121,7 +128,7 @@ class Home extends Component {
     const {videosList} = this.state
     const videosLength = videosList.length
     return videosLength === 0 ? (
-      <HomeNoSearchResultComponent />
+      <HomeNoSearchResultComponent getPageDetails={this.retryTheResult} />
     ) : (
       <HomeVideosList videos={videosList} />
     )
@@ -147,6 +154,10 @@ class Home extends Component {
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
     return (
       <NxtWatchContext.Consumer>
         {value => {

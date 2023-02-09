@@ -75,6 +75,8 @@ export const ComponentChanelListInfo = styled.li`
   padding: 0;
   font-size: 0.8rem;
   margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
 
   margin: auto;
 

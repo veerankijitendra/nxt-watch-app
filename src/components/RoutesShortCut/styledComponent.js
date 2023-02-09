@@ -11,6 +11,8 @@ import {Button} from '../../styledComponent'
 
 export const RouteLink = styled(Link)`
   text-decoration: none;
+  display: flex;
+  align-items: center;
 `
 
 export const MenuPopupListCon = styled.ul`

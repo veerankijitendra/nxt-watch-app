@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const color = {
   headingDark: '#ebebeb',
@@ -8,6 +9,10 @@ const color = {
   fontWeight: 400,
 }
 
+export const LinkCom = styled(Link)`
+  text-decoration: none;
+  width: 100%;
+`
 export const SavedItemCon = styled.div`
   width: 100%;
   height: 14rem;

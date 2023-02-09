@@ -17,6 +17,8 @@ const color = {
   viewsDark: '#e2e8f0',
 }
 
+export const Para = styled.p``
+
 export const VideoItemBG = styled.div`
   @media all and (max-width: 576px) {
     margin: 2rem 1rem;
@@ -55,6 +57,8 @@ export const VITimePeriodElement = styled.li`
 
   margin: 0;
   margin-left: 2.5rem;
+  display: flex;
+  align-items: center;
 `
 export const VIIconsCon = styled.ul`
   padding: 0;

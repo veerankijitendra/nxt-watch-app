@@ -169,7 +169,7 @@ class Login extends Component {
               >
                 <NxtWatchImage
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                  alt="nxt watch"
+                  alt="website logo"
                 />
                 {this.renderLoginForm(isDarkMode)}
                 <LoginBtn type="submit">Login</LoginBtn>

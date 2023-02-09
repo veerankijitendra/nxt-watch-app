@@ -87,25 +87,26 @@ const Header = () => (
         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
       return (
-        <HeaderBg isDarkMode={isDarkMode.toString()}>
+        <HeaderBg isDarkMode={isDarkMode.toString()} key="header">
           <Link to="/">
             <HeaderImage src={image} alt="website logo" />
           </Link>
           <LowTierIconsCon>
             {modeChangeComponent()}
             {popUpComponent()}
-            <HeaderButton type="button">
-              <LogoutPopUp />
-            </HeaderButton>
+
+            <LogoutPopUp />
           </LowTierIconsCon>
           <HighTierIconCon>
             {modeChangeComponent()}
+
             <HeaderButton type="button">
               <ProfileImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png "
                 alt="profile"
               />
             </HeaderButton>
+
             <LogoutPopUp />
           </HighTierIconCon>
         </HeaderBg>

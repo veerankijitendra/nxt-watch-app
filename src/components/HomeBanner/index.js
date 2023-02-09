@@ -30,7 +30,7 @@ const HomeBanner = props => {
         </HomeBannerCloseButton>
       </HomeBannerImageCloseIconCon>
       <HomeBannerPara>
-        Buy Nxt Watch Premium <br /> prepaid plans with UPI
+        Buy Nxt Watch Premium prepaid plans with UPI
       </HomeBannerPara>
       <HomeBannerButton type="button">GET IT NOW</HomeBannerButton>
     </HomeBannerCon>

@@ -51,7 +51,8 @@ const VideoComponent = props => (
                   <Para outline={isDarkMode.toString()}>{viewCount}</Para>
                 </ComponentChanelListInfo>
                 <ComponentChanelListInfo outline={isDarkMode.toString()}>
-                  <Para outline={isDarkMode.toString()}>{diff} Years ago</Para>
+                  <Para outline={isDarkMode.toString()}>{diff} </Para>
+                  <Para> Years ago </Para>
                 </ComponentChanelListInfo>
               </ComponentChanelCon>
             </ComponentDetailsCon>

@@ -28,7 +28,10 @@ const FailureComponent = props => (
           <NoResultHeading outline={isDarkMode.toString()}>
             Oops! Something Went Wrong
           </NoResultHeading>
-          <NoResultPara>We are having some trouble</NoResultPara>
+          <NoResultPara>
+            We are having some trouble to complete your request. Please try
+            again.
+          </NoResultPara>
           <NoResultButton type="button" onClick={reFetchTheAPI}>
             Retry
           </NoResultButton>

@@ -69,7 +69,7 @@ class Gaming extends Component {
   }
 
   renderLoadingElement = () => (
-    <LoadingComponent>
+    <LoadingComponent data-testId="loader">
       <Loader type="ThreeDots" color="#000000" height="50" width="50" />
     </LoadingComponent>
   )

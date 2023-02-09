@@ -10,10 +10,7 @@ export const ChannelImageAndDetailsCon = styled.div`
 
   width: 100%;
 `
-
-export const LinkComponent = styled(Link)`
-  text-decoration: none;
-  display: block;
+export const List = styled.li`
   width: 100%;
 
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.12);
@@ -37,6 +34,11 @@ export const LinkComponent = styled(Link)`
     max-width: 29%;
     margin: 0 1rem 1rem 0;
   }
+`
+
+export const LinkComponent = styled(Link)`
+  text-decoration: none;
+  display: block;
 `
 
 export const ComponentImage = styled.img`
@@ -75,6 +77,8 @@ export const ComponentChanelListInfo = styled.li`
   padding: 0;
   font-size: 0.8rem;
   margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
 
   margin: auto;
 

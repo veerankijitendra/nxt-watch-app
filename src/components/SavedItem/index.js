@@ -8,6 +8,7 @@ import {
   ListElement,
   TimePeriodElement,
   SavedItemCon,
+  LinkCom,
 } from './styledComponent'
 
 const SaveItem = props => (
@@ -15,27 +16,35 @@ const SaveItem = props => (
     {value => {
       const {isDarkMode} = value
       const {video} = props
-      console.log(video)
-      const {channelName, title, viewCount, publishedAt, thumbnailUrl} = video
-      console.log(channelName, title, viewCount)
+      const {
+        channelName,
+        title,
+        viewCount,
+        publishedAt,
+        thumbnailUrl,
+        id,
+      } = video
+
       return (
-        <SavedItemCon>
-          <Image src={thumbnailUrl} alt="video thumbnail" />
-          <div>
-            <Heading outline={isDarkMode.toString()}>{title}</Heading>
-            <Para outline={isDarkMode.toString()}>{channelName}</Para>
-            <Con>
-              <ListElement>
-                <Para outline={isDarkMode.toString()}>{viewCount} views</Para>
-              </ListElement>
-              <TimePeriodElement>
-                <Para outline={isDarkMode.toString()}>
-                  {publishedAt} years ago
-                </Para>
-              </TimePeriodElement>
-            </Con>
-          </div>
-        </SavedItemCon>
+        <LinkCom to={`/videos/${id}`}>
+          <SavedItemCon>
+            <Image src={thumbnailUrl} alt="video thumbnail" />
+            <div>
+              <Heading outline={isDarkMode.toString()}>{title}</Heading>
+              <Para outline={isDarkMode.toString()}>{channelName}</Para>
+              <Con>
+                <ListElement>
+                  <Para outline={isDarkMode.toString()}>{viewCount} views</Para>
+                </ListElement>
+                <TimePeriodElement>
+                  <Para outline={isDarkMode.toString()}>
+                    {publishedAt} years ago
+                  </Para>
+                </TimePeriodElement>
+              </Con>
+            </div>
+          </SavedItemCon>
+        </LinkCom>
       )
     }}
   </NxtWatchContext.Consumer>

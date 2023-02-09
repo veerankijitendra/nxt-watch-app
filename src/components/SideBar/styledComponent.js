@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SideBarCon = styled.div`
+export const SideBarCon = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

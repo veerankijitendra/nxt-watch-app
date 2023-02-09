@@ -89,7 +89,7 @@ class App extends Component {
       >
         <>
           <Switch>
-            <ProtectedRoute exact path="/" component={Home} />
+            <Route exact path="/" component={Home} />
             <ProtectedRoute
               exact
               path="/saved-videos"

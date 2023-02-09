@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const VideosListCon = styled.div`
+export const VideosListCon = styled.ul`
+  padding: 0;
+  list-style: none;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

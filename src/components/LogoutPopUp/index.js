@@ -8,12 +8,12 @@ import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   LogoutIcon,
   IconButton,
-  LogoutButton,
   PopUpButton,
   MainCon,
   ButtonCon,
   LogoutPara,
   CancelButton,
+  Span,
 } from './styledComponent'
 
 const LogoutPopUp = props => (
@@ -36,19 +36,18 @@ const LogoutPopUp = props => (
           <Popup
             modal
             trigger={
-              <div>
-                <IconButton type="button">
-                  <LogoutIcon outline={isDarkMode.toString()} />
-                </IconButton>
-                <LogoutButton type="button"> Logout </LogoutButton>
-              </div>
+              <IconButton type="button">
+                <LogoutIcon outline={isDarkMode.toString()} />
+                <Span>Logout</Span>
+              </IconButton>
+              /* <LogoutButton type="button"> Logout </LogoutButton> */
             }
             overlayStyle={overlayStyles}
           >
             {close => (
               <MainCon outline={isDarkMode.toString()}>
                 <LogoutPara outline={isDarkMode.toString()}>
-                  Are you sure you want to logout?
+                  Are you sure, you want to logout
                 </LogoutPara>
                 <ButtonCon>
                   <CancelButton
