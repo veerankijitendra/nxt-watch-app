@@ -64,7 +64,7 @@ export const IconButton = styled(Button)`
 `
 export const Span = styled.span`
   @media all and (max-width: 767px) {
-    display: block;
+    display: none;
   }
 `
 

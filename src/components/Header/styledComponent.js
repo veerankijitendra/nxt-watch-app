@@ -34,13 +34,17 @@ export const LowTierIconsCon = styled.div`
   padding: 0;
   width: 20%;
   min-width: 120px;
+  @media all and (min-width: 767px) {
+    min-width: 220px;
+  }
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
+`
+export const LowEndHide = styled.div`
   @media all and (min-width: 767px) {
     display: none;
   }
-  list-style: none;
 `
 export const List = styled.li`
   list-style-type: none;
@@ -74,6 +78,11 @@ export const HeaderButton = styled(Button)`
   padding: 0;
 
   background-color: transparent;
+`
+export const ProfileButton = styled(HeaderButton)`
+  @media all and (max-width: 767px) {
+    display: none;
+  }
 `
 export const LogoutButton = styled(Button)`
   width: 100px;

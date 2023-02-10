@@ -20,6 +20,8 @@ import {
   PopUpBG,
   PopUpButtonCon,
   PopUpRoutesCon,
+  LowEndHide,
+  ProfileButton,
 } from './styledComponent'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -41,7 +43,7 @@ const Header = () => (
       }
 
       const popUpComponent = () => (
-        <>
+        <LowEndHide>
           <Popup
             modal
             trigger={
@@ -69,16 +71,16 @@ const Header = () => (
               </PopUpBG>
             )}
           </Popup>
-        </>
+        </LowEndHide>
       )
 
       const modeChangeComponent = () => (
-        <HeaderButton type="button" data-testId="theme">
-          {isDarkMode ? (
-            <ChangeModeSun onClick={onClickBGChange} />
-          ) : (
-            <ChangeModeMoon onClick={onClickBGChange} />
-          )}
+        <HeaderButton
+          type="button"
+          data-testId="theme"
+          onClick={onClickBGChange}
+        >
+          {isDarkMode ? <ChangeModeSun /> : <ChangeModeMoon />}
         </HeaderButton>
       )
 
@@ -94,21 +96,15 @@ const Header = () => (
           <LowTierIconsCon>
             {modeChangeComponent()}
             {popUpComponent()}
-
-            <LogoutPopUp />
-          </LowTierIconsCon>
-          <HighTierIconCon>
-            {modeChangeComponent()}
-
-            <HeaderButton type="button">
+            <ProfileButton type="button">
               <ProfileImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png "
                 alt="profile"
               />
-            </HeaderButton>
+            </ProfileButton>
 
             <LogoutPopUp />
-          </HighTierIconCon>
+          </LowTierIconsCon>
         </HeaderBg>
       )
     }}
